@@ -57,10 +57,9 @@ import java.util.stream.Collectors;
         }
     }
 
-		public void searchContactWithCity() {
-        System.out.println("Enter the city name:" );
+		 public void viewPersonWithCity() {
+        System.out.println("Enter the city: " );
         String city = input.nextLine();
-        System.out.println("Name of person from is:" );
-        List<contactInfo> city = contacts.stream().sorted(Comparator.comparing(ContactInfo::getFirstName)).filter(contacts -> contacts.getCity().equals(city)).collect(Collectors.toList());
-
-
+        System.out.println("Name of person is:" );
+        List<ContactInfo> cities = contacts.stream().sorted(Comparator.comparing(ContactInfo::getFirstName)).filter(contacts -> contacts.getCity().equals(city)).collect(Collectors.toList());
+        }
