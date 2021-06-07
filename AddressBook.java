@@ -61,5 +61,10 @@ import java.util.stream.Collectors;
         System.out.println("Enter the city: " );
         String city = input.nextLine();
         System.out.println("Name of person is:" );
-        List<ContactInfo> cities = contacts.stream().sorted(Comparator.comparing(ContactInfo::getFirstName)).filter(contacts -> contacts.getCity().equals(city)).collect(Collectors.toList());
+        List<ContactInfo> cities = contacts.stream().sorted(Comparator.comparing(contactInfo::getFirstName)).filter(contacts -> contacts.getCity().equals(city)).collect(Collectors.toList());
         }
+
+		 public void contactSortByPersonName() {
+        List<contactInfo> list = contacts.stream().sorted(Comparator.comparing(contactInfo::getCity)).collect(Collectors.toList());
+        System.out.println(list);
+    }
