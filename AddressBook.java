@@ -65,6 +65,10 @@ import java.util.stream.Collectors;
         }
 
 		 public void contactSortByPersonName() {
-        List<contactInfo> list = contacts.stream().sorted(Comparator.comparing(contactInfo::getCity)).collect(Collectors.toList());
+        List<contactInfo> list = contacts.stream().sorted(Comparator.comparing(contactInfo::getFirstName)).collect(Collectors.toList());
         System.out.println(list);
     }
+
+   	 public void contactSortByCity() {
+	     List<contactInfo> list = contacts.stream().sorted(Comparator.comparing(contactInfo::getCity)).collect(Collectors.toList());
+        System.out.println(list);
