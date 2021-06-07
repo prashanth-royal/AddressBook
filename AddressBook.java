@@ -11,6 +11,10 @@ import java.util.Scanner;
 		public String emailId;
 		String inputFirstName, inputLastName, inputState, inputCity, inputZip, inputPhoneNum, inputEmailId;
 
+		   public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Welcome to Address Book");
+
     public void getInput() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter First Name");
@@ -48,12 +52,7 @@ import java.util.Scanner;
                 ", PhoneNum='" + inputPhoneNum + 
                 ", EmailId='" + inputEmailId + 
                 "}";
-    }
-
-    contactInfo() {
-        System.out.println("Welcome to Address Book");
-    }
-
+   }
     contactInfo(String firstName, String lastName, String state, String city, String zip, String phoneNum, String emailId) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -168,6 +167,39 @@ import java.util.Scanner;
         if (count == 0) {
             System.out.println("No Contact");
 	}
-}
+ public static void addMultipleContact() {
+        int count = 0;
+        String temp[] = new String[dictionary.size()];
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter name for dictionary");
+        String inputDictionary = scan.next();
+        for (String s : dictionary.keySet()) {
+            temp[count] = s;
+            count++;
+        }
+        for (int i = 0; i < count; i++) {
+            if (temp[i].equalsIgnoreCase(inputDictionary)) {
+                //System.out.println("1");
+                System.out.println("contact already exit please select another");
+                addMultipleContact();
+            }
+        }
+        AddressBookSystem.chooseOption();
+        dictionary.put(inputDictionary, user);
+        System.out.println(dictionary);
+    }
+
+    public static void getUserDictionary() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println(" to add another contact select 1 and select 0 to quit");
+        int choice = scan.nextInt();
+        if (choice == 1) {
+            AddressBookSystem.addMultipleContact();
+            user.clear();
+            getUserDictionary();
+        } else {
+            System.out.println("Quit");
+        }
+   }
 }
 }
